@@ -1,0 +1,15 @@
+Linux Checklist for hardening Cyberpatriot machines
+
+1) Answer the Forensics questions
+
+2) User Auditing
+  a) Disable the guest account
+    i) go to `/etc/lightdm/lightdm.conf`
+    ii) add line `allow-guest=false`
+    iii) save the file
+  b) Make sure all admins are authorized to be admins
+    i) double check this in `/etc/group` 
+      ia) group sudo and admin
+  c) Delete unauthorized users
+    i) save their files
+  
