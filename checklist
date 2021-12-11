@@ -112,7 +112,7 @@ Finish section 3 - pam
   
 14) 
 
-last thing) IPtables/ports - More to add
+last thing) IPtables/firewall rules - More to add
   run `iptables.sh`
   
  
