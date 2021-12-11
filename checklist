@@ -77,7 +77,11 @@ Finish section 3 - pam
     
 10) Check the host file for strange things
 
+11) Firefox security
+  a) strictest possible settings
 
+12) Disable ipv4 forwarding
+  a) `echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward`
 
 
 
