@@ -54,8 +54,8 @@ Finish section 3 - pam
 7) Updates
   a) ensure check for updates daily is enabled in settings
   b) ensure security updates are enabled
-  c) `sudo apt upgrade -y`
-  d) `sudo apt update -y`
+  c) `sudo apt update -y`
+  d) `sudo apt upgrade -y`
   e) `sudo apt auto-remove -y`
   f) update the kernal
   g) ensure bash is updated to prevent shellshock vuln
@@ -64,7 +64,18 @@ Finish section 3 - pam
   a) ensure to secure the critical services
     i) Google is your best friend
 
-
+9) If ssh installed
+  a) in /etc/ssh/sshd_config
+    i) 
+    `LoginGraceTime 2m`
+    `PermitRootLogin no`
+    `StrictMode yes`
+    `MaxAuthTries 0`
+    `MaxSessions 0`
+    `PubkeyAuthentication yes`
+    ii) run `sudo systemctl reload sshd.service`
+    
+10) Check the host file for strange things
 
 
 
