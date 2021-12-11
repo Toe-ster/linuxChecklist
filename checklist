@@ -87,6 +87,9 @@ Finish section 3 - pam
 13) install and configure auditd
   a) run script audits.sh
 
-
+14) Download and run lynis
+  a) `sudo apt install lynis -y`
+  b) `sudo lynis audit system`
+  
 
 
