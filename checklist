@@ -80,8 +80,12 @@ Finish section 3 - pam
 11) Firefox security
   a) strictest possible settings
 
-12) Disable ipv4 forwarding
+12) Disable ipv4 forwarding / syncookie protection
   a) `echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward`
+  b) `sysctl -n net.ipv4.tcp_syncookies`
+  
+13) install and configure auditd
+  a) run script audits.sh
 
 
 
