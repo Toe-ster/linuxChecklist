@@ -48,6 +48,7 @@ Finish section 3 - pam
  
  6) Look for unwanted software/malware
    a) MAKE SURE IT IS NOT A CRITICAL SERVICE
+     i) comment out needed software from script!
    b) run `wack.sh`
 
 
