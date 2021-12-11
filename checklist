@@ -110,7 +110,30 @@ Finish section 3 - pam
   a) `sudo apt install lynis -y`
   b) `sudo lynis audit system`
   
-14) 
+14) Look at open ports/check for backdoors
+  a) `sudo lsof -i -n -P`
+  b) `sudo netstat -ntlup | grep -e "netcat" -e "nc" -e "ncat"`
+  
+15) Look for unwanted software
+  a) `find / -type f -mmin +7 -exeec stat -c "%n %x" {} \;`
+  b)
+  ```
+  sudo find / -type f -iname '*.mp3' -delete -print 2>/dev/null
+  sudo find / -type f -iname '*.mp4' -delete -print 2>/dev/null
+  sudo find / -iname 'crack' -print 2>/dev/null
+  sudo find / -iname 'nmap' -print 2>/dev/null
+  sudo find / -iname 'wireshark' -print 2>/dev/null
+  sudo find / -iname 'minetest' -print 2>/dev/null
+  sudo find / -iname 'kismet' -print 2>/dev/null
+  sudo find / -iname '*.txt' - print 2>/dev/null
+  sudo find / -iname '*.exe' - print 2>/dev/null
+  ```
+16) auto logout
+  a) `nano ~/.bashrc`
+    ```
+    TMOUT=100
+    ```
+  b) `source ~/.bashrc`
 
 last thing) IPtables/firewall rules - More to add
   run `iptables.sh`
