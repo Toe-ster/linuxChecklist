@@ -50,3 +50,45 @@
 	touch /etc/iptables/rules.v6
 	iptables-save > /etc/iptables/rules.v4
 	ip6tables-save > /etc/iptables/rules.v6
+	
+	ufw enable
+	ufw deny 23
+	ufw deny 2049
+	ufw deny 515
+	ufw deny 111
+	ufw deny ssh
+	#Samba stuff, delete if samba allowed
+	ufw deny netbios-ns
+	ufw deny netbios-dgm
+	ufw deny netbios-ssn
+	ufw deny microsoft-ds
+	#ftp stuff
+	ufw deny ftp 
+	ufw deny sftp 
+	ufw deny saft 
+	ufw deny ftps-data 
+	ufw deny ftps
+	#telnet stuff, delete if allowed
+	ufw deny telnet
+	ufw deny rtelnet
+	ufw deny telnets
+	#mail protocol stuff, delete if allowed
+	ufw deny smtp
+	ufw deny pop2
+	ufw deny pop3
+	ufw deny imap2
+	ufw deny imaps
+	ufw deny pop3s
+	#print stuff, delete if allowed
+	ufw deny ipp
+	ufw deny printer
+	ufw deny cups
+	#database stuff, delete if allowed
+	ufw deny ms-sql-s
+	ufw deny ms-sql-m
+	ufw deny mysql
+	ufw deny mysql-proxy
+	#http/apache stuff, alter if allowed
+	ufw deny http
+	#dns stuff
+	ufw deny domain
