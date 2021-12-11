@@ -31,10 +31,32 @@ Finish section 3 - pam
       PASS_WARN_AGE 14
       ```
     ii) PAM files
-      iia) run `sudo apt install libpam-cracklib`
-      iib) go to `/etc/pam.d/common-password`
-        
-        
+      iia) run `sudo apt install libpam-cracklib` and `sudo apt install libpam-pwquality`
+      iib) go to `/etc/security/pwquality.conf` 
+        ```
+        minlen = 8
+        minclass = 4
+        dcredit = -1
+        ucredit = -1
+        ocredit = -1
+        lcredit = -1
+        ```
+      iic) `/etc/pam.d/common-password`
+        ```
+        retry=3
+        ```
+        ```
+        password [success=1 default=ignore] pam_unix.so sha512
+        ```
+      iid) `/etc/pam.d/common-auth`
+        ```
+        auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900
+        ```
+      iie) `/etc/security/opasswd`
+        ```
+        password required pam_pwhistory.so remember=5
+        ```
+      
 4) Enable the firewall
   a) install ufw
     i) `sudo apt install ufw`
@@ -42,16 +64,13 @@ Finish section 3 - pam
     i) `sudo ufw enable`
   c) ensure no apps are runnning on the firewall
     i) `sudo ufw app list`
-
-5) IPtables/ports - More to add
-  run `iptables.sh`
- 
-6) Look for unwanted software/malware
+    
+5) Look for unwanted software/malware
    a) MAKE SURE IT IS NOT A CRITICAL SERVICE
      i) comment out needed software from script!
    b) run `wack.sh`
 
-7) Updates
+6) Updates
   a) ensure check for updates daily is enabled in settings
   b) ensure security updates are enabled
   c) `sudo apt update -y`
@@ -60,11 +79,11 @@ Finish section 3 - pam
   f) update the kernal
   g) ensure bash is updated to prevent shellshock vuln
   
-8) Critical service specific
+7) Critical service specific
   a) ensure to secure the critical services
     i) Google is your best friend
 
-9) If ssh installed
+8) If ssh installed
   a) in /etc/ssh/sshd_config
     i) 
     `LoginGraceTime 2m`
@@ -75,21 +94,26 @@ Finish section 3 - pam
     `PubkeyAuthentication yes`
     ii) run `sudo systemctl reload sshd.service`
     
-10) Check the host file for strange things
+9) Check the host file for strange things
 
-11) Firefox security
+10) Firefox security
   a) strictest possible settings
 
-12) Disable ipv4 forwarding / syncookie protection
+11) Disable ipv4 forwarding / syncookie protection
   a) `echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward`
   b) `sysctl -n net.ipv4.tcp_syncookies`
   
-13) install and configure auditd
+12) install and configure auditd
   a) run script audits.sh
 
-14) Download and run lynis
+13) Download and run lynis
   a) `sudo apt install lynis -y`
   b) `sudo lynis audit system`
   
+14) 
 
+last thing) IPtables/ports - More to add
+  run `iptables.sh`
+  
+ 
 
