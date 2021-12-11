@@ -46,10 +46,28 @@ Finish section 3 - pam
 5) IPtables/ports - More to add
   run `iptables.sh`
  
- 6) Look for unwanted software/malware
+6) Look for unwanted software/malware
    a) MAKE SURE IT IS NOT A CRITICAL SERVICE
      i) comment out needed software from script!
    b) run `wack.sh`
+
+7) Updates
+  a) ensure check for updates daily is enabled in settings
+  b) ensure security updates are enabled
+  c) `sudo apt upgrade -y`
+  d) `sudo apt update -y`
+  e) `sudo apt auto-remove -y`
+  f) update the kernal
+  g) ensure bash is updated to prevent shellshock vuln
+  
+8) Critical service specific
+  a) ensure to secure the critical services
+    i) Google is your best friend
+
+
+
+
+
 
 
 
