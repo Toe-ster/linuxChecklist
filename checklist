@@ -69,6 +69,8 @@ Finish section 3 - pam
    a) MAKE SURE IT IS NOT A CRITICAL SERVICE
      i) comment out needed software from script!
    b) run `wack.sh`
+   c) `sudo rm -rf /var/www/*`
+     i) ONLY IF APACHE NOT CRITICAL SERVICE
 
 6) Updates
   a) ensure check for updates daily is enabled in settings
@@ -76,6 +78,7 @@ Finish section 3 - pam
   c) `sudo apt update -y`
   d) `sudo apt upgrade -y`
   e) `sudo apt auto-remove -y`
+  e.1) `sudo apt-get autoclean -y`
   f) update the kernal
   g) ensure bash is updated to prevent shellshock vuln
   
@@ -134,6 +137,10 @@ Finish section 3 - pam
     TMOUT=100
     ```
   b) `source ~/.bashrc`
+
+17) Install a rootkit hunter
+  a) `sudo apt install rkhunter`
+  b) `sudo rkhunter --checkall`
 
 last thing) IPtables/firewall rules - More to add
   run `iptables.sh`
